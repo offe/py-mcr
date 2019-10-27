@@ -1,14 +1,6 @@
 import os
 import shutil
 
-"""
-def copy_files(source, destination, end, exclude=None):
-    for root, dirs, files in tuple(os.walk(source)):
-        files = [f for f in files if f.endswith(end) and f != exclude]
-        for image_name in files:
-            shutil.copyfile(os.path.join(source, image_name), 
-                            os.path.join(destination, image_name))
-"""
 def copy_files(source, destination, end):
     files = [f for f in os.listdir(source) if f.endswith(end)]
     for image_name in files:
