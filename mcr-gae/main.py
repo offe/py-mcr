@@ -1,3 +1,21 @@
+import webapp2
+import mahjongserver
+import logging
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        situation_string = self.request.get('sit', None)
+        if situation_string:
+            situation_string = str(situation_string)
+        logging.info(situation_string)
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.write(mahjongserver.get_page(situation_string))
+
+app = webapp2.WSGIApplication([
+    ('/', MainPage),
+], debug=True)
+
+"""
 import cgi
 import os
 import mahjongserver
@@ -27,3 +45,4 @@ def main():
 	
 if __name__ == "__main__":
 	main()
+"""

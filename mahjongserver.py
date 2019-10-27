@@ -8,7 +8,7 @@ import time
    
 def get_hand_form(sit=''):
     return FORM(INPUT(type="text", name="sit", value=sit, size=40) + 
-                INPUT(type="submit", name="calc", value="Calculate"), 
+                INPUT(type="submit", value="Calculate"), 
                 method='get', action='')  + A("Main page", href='/')
 
 def help_fragment():
@@ -66,13 +66,13 @@ def help_fragment():
     return fragment
 
 def get_page(situation):
-    bgcolor = '#C2D734'
+    bgcolor = '#99aaee'
     title = 'MCR Mahjong Hand Score Calculator'
     head = HEAD(TITLE(title))
     header = P(H1(title))
-    footer = P(TEXT('This page use ') + A('pyMCR', href='http://code.google.com/p/py-mcr/') + TEXT(', an open source Mahjong Competition Rules hand scoring library. Post feedback or questions on the ') + A('Swedish Mahjong Association forums', href='http://www.mahjong-gbg.se/forum/viewtopic.php?f=13&t=129') + TEXT('.')) + \
+    footer = P(TEXT('This page use ') + A('pyMCR', href='https://github.com/offe/py-mcr') + TEXT(', an open source Mahjong Competition Rules hand scoring library. Post feedback or questions on the ') + A('Swedish Mahjong Association forums', href='https://www.svenskmahjong.se/forum/') + TEXT('.')) + \
     P(TEXT('Tile graphics are from ') + A('Mahjong Wiki', href='http://mahjong.wikidot.com/') + TEXT(' and they are released under a Creative Commons licence.')) + \
-    P(TEXT('Version 1.1'))
+    P(TEXT('Version 1.2'))
     if situation == None:
         page = head + BODY(header + help_fragment() + footer, 
                            bgcolor=bgcolor)
